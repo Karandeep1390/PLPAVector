@@ -10,10 +10,9 @@ from docx import Document
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-
 # Get API key from environment variables
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+OPENAI_API_KEY = "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"
+os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY  
 
 # Initialize session state for chat history
 if "messages" not in st.session_state:
