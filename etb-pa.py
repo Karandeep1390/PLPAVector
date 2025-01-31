@@ -1,5 +1,5 @@
 import streamlit as st
-from langchain_community.vectorstores import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_openai import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
@@ -29,7 +29,7 @@ def read_docx(file_path):
 def create_vectorstore(text_chunks):
     """Create FAISS vectorstore from text chunks using OpenAI embeddings."""
     embeddings = OpenAIEmbeddings()
-    vectorstore = Chroma.from_texts(texts=text_chunks, embedding=embeddings)
+    vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
 def split_text(text):
