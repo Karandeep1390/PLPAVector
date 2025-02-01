@@ -18,7 +18,6 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 def read_docx(file_path):
-    """Extract text from DOCX file."""
     doc = Document(file_path)
     full_text = []
     for paragraph in doc.paragraphs:
@@ -26,13 +25,11 @@ def read_docx(file_path):
     return '\n'.join(full_text)
 
 def create_vectorstore(text_chunks):
-    """Create FAISS vectorstore from text chunks using OpenAI embeddings."""
     embeddings = OpenAIEmbeddings()
     vectorstore = FAISS.from_texts(texts=text_chunks, embedding=embeddings)
     return vectorstore
 
 def split_text(text):
-    """Split text into chunks."""
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,
         chunk_overlap=200,
@@ -42,7 +39,6 @@ def split_text(text):
     return chunks
 
 def create_chain(vectorstore):
-    """Create the RAG chain with conversation memory."""
     llm = ChatOpenAI(temperature=0.1)
     
     memory = ConversationBufferMemory(
