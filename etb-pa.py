@@ -14,7 +14,6 @@ load_dotenv()
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 
-# Initialize session state for chat history
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
@@ -79,7 +78,7 @@ def create_chain(vectorstore):
 
 def main():
     st.title("Personal Loan Journey Assistant")
-    docx_file_path = "process_note.docx"  # Replace with the actual path to your DOCX file
+    docx_file_path = "process_note.docx" 
     
     if os.path.exists(docx_file_path):
         try:
