@@ -6,3 +6,4 @@ openai
 python-dotenv
 python-docx
 langchain_openai
+faiss-cpu
