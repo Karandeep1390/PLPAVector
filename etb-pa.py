@@ -39,7 +39,7 @@ def split_text(text):
     return chunks
 
 def create_chain(vectorstore):
-    llm = ChatOpenAI(temperature=0.1)
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.1)
     
     memory = ConversationBufferMemory(
         memory_key="chat_history",
